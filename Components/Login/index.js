@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Button } from 'react-native';
+import { View, Button, Alert } from 'react-native';
 import Form from "../Components/Form"
 import { loginApi } from '../Services/Login';
 import { Fieldlogin } from './Fields';
@@ -16,7 +16,7 @@ export default function Login({navigation}) {
             await AsyncStorage.setItem('@token', response.data.token)
             navigation.push('Home');
         }).catch(error =>{
-            console.log(error, "error")
+            Alert.alert('Inicio de sesion', "Contraseña o usuario incorrecto")
         })
     }
     
